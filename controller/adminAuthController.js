@@ -10,10 +10,10 @@ export const registerUser = async (req, res) => {
     const { username, useremail, userphone, userpassword } = req.body;
 
     if (!username || !useremail || !userpassword) {
-        return res.status(400).json({
-            success: false,
-            message: "Please provide all required fields (username, useremail, userpassword)."
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Please provide all required fields (username, useremail, userpassword)."
+      });
     }
 
     // Check if user already exists
@@ -57,10 +57,10 @@ export const loginUser = async (req, res) => {
     const { useremail, userpassword } = req.body;
 
     if (!useremail || !userpassword) {
-        return res.status(400).json({
-            success: false,
-            message: "Please provide email and password."
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Please provide email and password."
+      });
     }
 
     // Check if user exists
@@ -87,7 +87,7 @@ export const loginUser = async (req, res) => {
       name: user.name,
       role: 'admin' // Add role for differentiation
     };
-    const token = jwt.sign(payload, SECRETKEY, { expiresIn: "1h" });
+    const token = jwt.sign(payload, SECRETKEY);
 
     res.status(200).json({
       success: true,

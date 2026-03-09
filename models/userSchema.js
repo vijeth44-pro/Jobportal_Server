@@ -12,6 +12,9 @@ const profileSchema = new mongoose.Schema({
   location: String,
   experience: String,
   skills: String,
+  gender: String,
+  education: String,
+  category: String,
   resume: resumeSchema
 }, { _id: false });
 
@@ -34,7 +37,6 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-
 
     role: {
       type: String,

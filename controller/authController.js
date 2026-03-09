@@ -112,7 +112,7 @@ export const updateProfile = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(
       req.user.id,
       { profile: req.body },
-      { new: true }
+      { returnDocument: "after" }
     ).select("-password");
 
     res.status(200).json({

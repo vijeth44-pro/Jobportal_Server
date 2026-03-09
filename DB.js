@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-const mongo_url = 'mongodb://localhost:27017/Main-Job-Server'
+const mongo_url = 'mongodb+srv://adithya_user:oneplus1@cluster0.1qldmht.mongodb.net/Main-Job-Server'
+//const mongo_url = 'mongodb://localhost:27017/Main-Job-Server'
 
 const mongoConnection = async() =>{
   try {

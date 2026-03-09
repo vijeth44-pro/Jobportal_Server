@@ -13,6 +13,7 @@ export const createJob = async (req, res) => {
       contactEmail,
       salary,
       applyLink,
+      workExperience,
     } = req.body;
 
     if (!title || !company) {
@@ -32,6 +33,7 @@ export const createJob = async (req, res) => {
       contactEmail,
       salary,
       applyLink,
+      workExperience,
     });
 
     res.status(201).json({

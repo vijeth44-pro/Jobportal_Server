@@ -37,7 +37,11 @@ const jobSchema = new mongoose.Schema(
     },
 
     applyLink: {
-      type: String,   
+      type: String,
+    },
+
+    workExperience: {
+      type: String,
     },
   },
   { timestamps: true }
