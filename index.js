@@ -22,7 +22,6 @@ mongoConnection()
 
 const PORT = 9000
 
-// ✅ Serve uploaded files (resumes, etc.)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
 // test api (optional)
