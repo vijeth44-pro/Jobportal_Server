@@ -82,3 +82,25 @@ export const getAllApplications = async (req, res) => {
     });
   }
 };
+
+
+export const withdrawApplication = async (req, res) => {
+  try {
+    const application = await Application.findById(req.params.id);
+
+    if (!application) {
+      return res.status(404).json({ success: false, message: "Application not found" });
+    }
+
+    // ✅ use "user" and "req.user.id" to match your schema & auth middleware
+    if (application.user.toString() !== req.user.id.toString()) {
+      return res.status(403).json({ success: false, message: "Unauthorized" });
+    }
+
+    await Application.findByIdAndDelete(req.params.id);
+
+    res.json({ success: true, message: "Application withdrawn successfully" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+};
